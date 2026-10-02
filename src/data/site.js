@@ -16,13 +16,12 @@ export const site = {
   course: 'Creative Computing BSc (Hons)',
   location: 'Norwich, UK',
 
-  // PLACEHOLDER — replace with the email address you want recruiters to use.
-  email: 'hello@your-email.example',
 
-  // PLACEHOLDER — replace with your real profile URLs.
+  email: 'katieglover21@gmail.com',
+
   links: {
-    github: 'https://github.com/your-username',
-    linkedin: 'https://www.linkedin.com/in/your-profile',
+    github: 'https://github.com/KatieMari',
+    linkedin: 'https://www.linkedin.com/in/katie-glover-',
   },
 
   tagline: 'Designing with curiosity, building with care.',
