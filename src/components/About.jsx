@@ -74,9 +74,7 @@ export default function About() {
             </Reveal>
 
             <Reveal className="currently" delay={220}>
-              <p className="currently__title">
-                Currently <PlaceholderBadge>Edit in site.js</PlaceholderBadge>
-              </p>
+              <p className="currently__title">Currently</p>
               <ul role="list">
                 {site.currently.map((item) => (
                   <li key={item.label}>
