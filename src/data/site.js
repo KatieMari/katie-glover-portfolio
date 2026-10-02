@@ -35,8 +35,8 @@ export const site = {
   // PLACEHOLDER — swap these for things that are true for you right now.
   currently: [
     { label: 'Learning', value: 'React and accessible component patterns' },
-    { label: 'Reading', value: 'Add a book or article you’re enjoying' },
-    { label: 'Off-screen', value: 'Add a hobby — drawing, climbing, baking…' },
+    { label: 'Watching', value: 'Game of Thrones' },
+    { label: 'Off-screen', value: 'Creating art and doing jigsaw puzzles' },
   ],
 
   // Words that scroll across the marquee strip between sections.
