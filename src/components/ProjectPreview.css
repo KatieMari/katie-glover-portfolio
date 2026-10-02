@@ -395,6 +395,52 @@
   margin-bottom: 0.4em;
 }
 
+/* --- Phones (real screenshots) ------------------------------------------ */
+.pv--phones {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4%;
+  padding: 6% 6% 0;
+}
+
+.pv-phones__device {
+  flex: 0 1 26%;
+  max-width: 26%;
+  padding: 0.6em;
+  border-radius: 2.6em 2.6em 0 0;
+  border-bottom: 0;
+  background: #141018; /* device hardware — always near-black, like a real phone */
+  box-shadow: var(--shadow-lg);
+  transform: translateY(var(--lift, 8%));
+  transition: transform var(--dur-slow) var(--ease-out);
+  transition-delay: calc(var(--i) * 60ms);
+}
+
+.pv-phones__device:nth-child(2) {
+  --lift: 0%;
+}
+
+/* On small screens give the phones more room */
+@media (max-width: 55.99em) {
+  .pv--phones {
+    aspect-ratio: 4 / 3.6;
+    gap: 3%;
+    padding: 9% 4% 0;
+  }
+  .pv-phones__device {
+    flex-basis: 30%;
+    max-width: 30%;
+    padding: 0.45em;
+  }
+}
+
+.pv-phones__device img {
+  width: 100%;
+  height: auto;
+  border-radius: 2em 2em 0 0;
+}
+
 /* --- Editorial ---------------------------------------------------------- */
 .pv-sheet {
   width: 82%;
@@ -511,6 +557,9 @@
   }
   .project:hover .pv-floating {
     transform: rotate(-3deg) translate(8%, -10%);
+  }
+  .project:hover .pv-phones__device {
+    transform: translateY(calc(var(--lift, 8%) - 5%));
   }
   .project:hover .pv-sheet {
     transform: rotate(0deg) translateY(2%);

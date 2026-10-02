@@ -7,7 +7,9 @@ import { site } from '../data/site.js';
 import './Projects.css';
 
 /** One link button, or a quiet "coming soon" note when there's no URL yet. */
-function ProjectLink({ href, label, icon, title, variant }) {
+function ProjectLink({ href, label, icon, title, variant, isPlaceholder }) {
+  // Real projects simply hide a missing link; placeholders show "coming soon".
+  if (!href && !isPlaceholder) return null;
   if (!href) {
     return (
       <span className="project__link project__link--empty">
@@ -61,10 +63,27 @@ function Project({ project, index }) {
         </div>
         <p className="project__summary">{project.summary}</p>
 
+        {project.team && <p className="project__team">{project.team}</p>}
+
         {project.role && (
           <p className="project__role">
             <span>My role</span> {project.role}
           </p>
+        )}
+
+        {project.highlights?.length > 0 && (
+          <ul className="project__highlights" role="list" aria-label="My contribution">
+            {project.highlights.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        )}
+
+        {project.quote && (
+          <blockquote className="project__quote">
+            <p>{project.quote.text}</p>
+            <footer>— {project.quote.source}</footer>
+          </blockquote>
         )}
 
         <ul className="project__tech" role="list" aria-label="Technologies used">
@@ -76,13 +95,20 @@ function Project({ project, index }) {
         </ul>
 
         <div className="project__links">
-          <ProjectLink href={project.liveUrl} label="View live site" icon="external" title={project.title} />
+          <ProjectLink
+            href={project.liveUrl}
+            label={project.liveLabel || 'View live site'}
+            icon="external"
+            title={project.title}
+            isPlaceholder={project.placeholder}
+          />
           <ProjectLink
             href={project.codeUrl}
-            label="Source code"
+            label="Code on GitHub"
             icon="github"
             title={project.title}
-            variant="ghost"
+            variant={project.liveUrl ? 'ghost' : undefined}
+            isPlaceholder={project.placeholder}
           />
         </div>
       </div>

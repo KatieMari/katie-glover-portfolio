@@ -85,20 +85,25 @@
     align-items: start;
   }
 
+  .project--featured .project__info > * {
+    grid-column: 2;
+  }
+
   .project--featured .project__head {
     grid-column: 1;
-    grid-row: 1 / span 4;
+    grid-row: 1 / span 2;
+  }
+
+  /* Pull the testimonial into the left column, under the title */
+  .project--featured .project__quote {
+    grid-column: 1;
+    grid-row: 3 / span 4;
+    align-self: start;
+    margin-top: var(--space-lg);
   }
 
   .project--featured .project__summary {
-    grid-column: 2;
     margin-top: 0;
-  }
-
-  .project--featured .project__role,
-  .project--featured .project__tech,
-  .project--featured .project__links {
-    grid-column: 2;
   }
 
   .project--featured .project__title {
@@ -161,6 +166,75 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.project__team {
+  margin-top: var(--space-sm);
+  font-size: var(--step--1);
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+.project__highlights {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: var(--space-md);
+  max-width: 52ch;
+}
+
+.project__highlights li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: var(--step--1);
+  line-height: 1.6;
+}
+
+/* small pink sparkle bullet */
+.project__highlights li::before {
+  content: '';
+  position: absolute;
+  left: 0.15rem;
+  top: 0.45em;
+  width: 0.7rem;
+  height: 0.7rem;
+  background: var(--color-accent);
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+}
+
+.project__quote {
+  position: relative;
+  margin-top: var(--space-md);
+  padding: var(--space-md) var(--space-md) var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  max-width: 34rem;
+}
+
+.project__quote::before {
+  content: '“';
+  position: absolute;
+  left: 0.6rem;
+  top: -0.4rem;
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--color-accent);
+}
+
+.project__quote p {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--step-1);
+  line-height: 1.4;
+  font-variation-settings: 'SOFT' 100, 'WONK' 1;
+}
+
+.project__quote footer {
+  margin-top: 0.5rem;
+  font-size: var(--step--1);
+  font-weight: 600;
   color: var(--color-text-secondary);
 }
 

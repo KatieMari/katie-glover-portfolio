@@ -7,42 +7,65 @@
  * Fields
  *  id           Unique, lowercase, no spaces (used for keys + aria ids).
  *  title        Project name.
- *  category     Short label, e.g. "Web app", "University module", "Personal project".
+ *  category     Short label, e.g. "Group project · Mobile app".
  *  year         e.g. "2026".
  *  summary      One or two sentences: the purpose or problem it addresses.
+ *  team         Optional: who you worked with (great for group projects).
  *  role         Optional: what *you* did (design, build, research…).
+ *  highlights   Optional: 2–4 short bullet points about your contribution.
+ *  quote        Optional: { text, source } — real feedback from testing.
  *  tech         Array of technologies used.
- *  liveUrl      Link to the live site. Leave as '' to show "Live demo coming soon".
- *  codeUrl      Link to the GitHub repo. Leave as '' to hide/disable the link.
- *  placeholder  true = shows a dashed "placeholder" label. Set false for real projects.
+ *  liveUrl      Link to the live site. Leave '' if there isn't one.
+ *  liveLabel    Optional button text for liveUrl (default "View live site"),
+ *               e.g. "Watch the demo" if you link to a video.
+ *  codeUrl      Link to the GitHub repo. Leave '' if there isn't one.
+ *  placeholder  true = shows a dashed "placeholder" label and "coming soon"
+ *               buttons. Set false for real projects.
  *
- *  image        Optional. Put a screenshot in /public/projects/ and set e.g.
- *               image: '/projects/my-app.webp'. When an image is set it is shown
- *               inside the preview frame instead of the illustrated mock-up.
- *  imageAlt     Describe the screenshot for screen-reader users.
- *
- *  preview      Illustrated mock-up used when there's no screenshot yet:
- *    type       'browser' | 'phone' | 'editorial'
- *    palette    The mock-up's OWN colours (they stay the same in light and dark
+ *  preview      How the project is pictured:
+ *    type       'phones'    → 1–3 phone screenshots side by side (mobile apps)
+ *               'browser'   → a browser window (websites)
+ *               'phone'     → a single phone
+ *               'editorial' → a print/magazine-style sheet
+ *    images     For 'phones': [{ src, alt }]. Put files in /public/projects/.
+ *    palette    The preview's OWN colours (they stay the same in light and dark
  *               mode, just like a real screenshot would).
+ *
+ *  image / imageAlt  For 'browser', 'phone' or 'editorial': one screenshot shown
+ *               inside the frame instead of the illustrated mock-up.
  */
 
 export const projects = [
   {
-    id: 'featured-project',
-    title: 'Your featured project',
-    category: 'Placeholder · Web app',
-    year: '2026',
+    id: 'power-pals',
+    title: 'Power Pals',
+    category: 'Group project · Mobile app',
+    year: '2026', // CHECK: change if this module ran in a different year
     summary:
-      'Replace this with one or two sentences about your strongest project: who it was for, the problem it set out to solve, and what makes it interesting.',
-    role: 'Design, front-end development',
-    tech: ['HTML', 'CSS', 'JavaScript'],
+      'A self-powered toy robot and companion app that teach children aged 6–11 why saving energy matters. Kids generate power with a hand crank, a button or sunlight, then use the app to follow the charge, discover energy facts and test themselves with quizzes.',
+    team: 'Built with Alfie Cooper, Grace Martin, Lee Vidlak Brooker and Ro Armitage',
+    role: 'App design, React Native development, user testing',
+    highlights: [
+      'Designed every screen and the user flow in Figma, and created the style guide used across the app, presentation and toy.',
+      'Coded most of the app in React Native with Expo Router, building reusable components for navigation, headers, the battery card and settings.',
+      'Ran testing with children using observation and survey forms, then added a welcome modal and reordered the home page in response.',
+    ],
+    quote: {
+      text: 'I’d tell my friends “free power!” and I think they would like it too.',
+      source: 'Child tester, age 11',
+    },
+    tech: ['React Native', 'Expo', 'Expo Router', 'JavaScript', 'Figma'],
     liveUrl: '',
-    codeUrl: '',
-    placeholder: true,
+    codeUrl: 'https://github.com/leeBrookerNUA/Bsc2b_CollaborativeApp',
+    placeholder: false,
     preview: {
-      type: 'browser',
-      palette: { bg: '#fff8f2', surface: '#ffffff', ink: '#2b2130', accent: '#d6567f', soft: '#f6d9e2' },
+      type: 'phones',
+      images: [
+        { src: '/projects/powerpals-home.webp', alt: 'Power Pals home screen with Instructions, Facts & Tips, Quiz and Start buttons' },
+        { src: '/projects/powerpals-play.webp', alt: 'Play screen showing a battery charging to 65% as the hand crank turns' },
+        { src: '/projects/powerpals-quiz.webp', alt: 'Easy quiz screen asking which energy source comes from the sun, with Solar marked correct' },
+      ],
+      palette: { bg: '#5b8def', surface: '#ffffff', ink: '#1d2b5c', accent: '#ffcf4d', soft: '#c9dcff' },
     },
   },
   {

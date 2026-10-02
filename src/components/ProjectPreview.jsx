@@ -22,6 +22,19 @@ export default function ProjectPreview({ project }) {
     <img className="pv-shot" src={image} alt={imageAlt || `Screenshot of ${title}`} loading="lazy" />
   ) : null;
 
+  // Several real phone screenshots side by side (best for mobile apps)
+  if (preview.type === 'phones' && preview.images?.length) {
+    return (
+      <div className="pv pv--phones" style={style}>
+        {preview.images.slice(0, 3).map((img, i) => (
+          <div key={img.src} className="pv-phones__device" style={{ '--i': i }}>
+            <img src={img.src} alt={img.alt} loading="lazy" width="486" height="1080" />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
   if (preview.type === 'phone') {
     return (
       <div className="pv pv--phone" style={style} aria-hidden={image ? undefined : 'true'}>
