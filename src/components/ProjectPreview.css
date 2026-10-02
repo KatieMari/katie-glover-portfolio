@@ -441,6 +441,59 @@
   border-radius: 2em 2em 0 0;
 }
 
+/* --- Scene (big screenshot + insets) ------------------------------------ */
+.pv--scene {
+  display: block;
+  padding: 7% 14% 9% 7%;
+}
+
+.pv-scene__main,
+.pv-scene__inset {
+  margin: 0;
+  overflow: hidden;
+  background: var(--p-bg);
+  box-shadow: var(--shadow-lg);
+}
+
+.pv-scene__main {
+  width: 100%;
+  height: 100%;
+  border-radius: 1.6em;
+  transform: rotate(-1.5deg);
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+
+.pv-scene__main img,
+.pv-scene__inset img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pv-scene__inset {
+  position: absolute;
+  width: 34%;
+  border-radius: 1.1em;
+  border: 0.45em solid var(--p-surface);
+  transition: transform var(--dur-slow) var(--ease-spring);
+}
+
+.pv-scene__inset--1 {
+  right: 4%;
+  top: 6%;
+  aspect-ratio: 520 / 455;
+  transform: rotate(4deg);
+}
+
+.pv-scene__inset--2 {
+  right: 9%;
+  bottom: 5%;
+  width: 26%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: rotate(-6deg);
+}
+
 /* --- Editorial ---------------------------------------------------------- */
 .pv-sheet {
   width: 82%;
@@ -560,6 +613,15 @@
   }
   .project:hover .pv-phones__device {
     transform: translateY(calc(var(--lift, 8%) - 5%));
+  }
+  .project:hover .pv-scene__main {
+    transform: rotate(0deg) scale(1.01);
+  }
+  .project:hover .pv-scene__inset--1 {
+    transform: rotate(-2deg) translate(-4%, 4%);
+  }
+  .project:hover .pv-scene__inset--2 {
+    transform: rotate(6deg) scale(1.06);
   }
   .project:hover .pv-sheet {
     transform: rotate(0deg) translateY(2%);

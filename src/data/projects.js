@@ -1,3 +1,43 @@
+/**
+ * projects.js — the ONLY file you need to edit to add, remove or reorder projects.
+ * ------------------------------------------------------------------------------
+ * The first project is shown as the large "featured" showcase. The rest
+ * alternate left/right automatically.
+ *
+ * Fields
+ *  id           Unique, lowercase, no spaces (used for keys + aria ids).
+ *  title        Project name.
+ *  category     Short label, e.g. "Group project · Mobile app".
+ *  year         e.g. "2026".
+ *  summary      One or two sentences: the purpose or problem it addresses.
+ *  team         Optional: who you worked with (great for group projects).
+ *  role         Optional: what *you* did (design, build, research…).
+ *  highlights   Optional: 2–4 short bullet points about your contribution.
+ *  quote        Optional: { text, source } — real feedback from testing.
+ *  tech         Array of technologies used.
+ *  liveUrl      Link to the live site. Leave '' if there isn't one.
+ *  liveLabel    Optional button text for liveUrl (default "View live site"),
+ *               e.g. "Watch the demo" if you link to a video.
+ *  codeUrl      Link to the GitHub repo. Leave '' if there isn't one.
+ *  placeholder  true = shows a dashed "placeholder" label and "coming soon"
+ *               buttons. Set false for real projects.
+ *
+ *  preview      How the project is pictured:
+ *    type       'phones'    → 1–3 phone screenshots side by side (mobile apps)
+ *               'scene'     → one large screenshot + up to 2 small insets
+ *                             (games, VR, 3D). Uses image/imageAlt + insets.
+ *               'browser'   → a browser window (websites)
+ *               'phone'     → a single phone
+ *               'editorial' → a print/magazine-style sheet
+ *    images     For 'phones': [{ src, alt }]. Put files in /public/projects/.
+ *    insets     For 'scene': [{ src, alt }] — small close-up images.
+ *    palette    The preview's OWN colours (they stay the same in light and dark
+ *               mode, just like a real screenshot would).
+ *
+ *  image / imageAlt  For 'browser', 'phone' or 'editorial': one screenshot shown
+ *               inside the frame instead of the illustrated mock-up.
+ */
+
 export const projects = [
   {
     id: 'power-pals',
@@ -6,7 +46,7 @@ export const projects = [
     year: '2026', // CHECK: change if this module ran in a different year
     summary:
       'A self-powered toy robot and companion app that teach children aged 6–11 why saving energy matters. Kids generate power with a hand crank, a button or sunlight, then use the app to follow the charge, discover energy facts and test themselves with quizzes.',
-    team: '5 person team',
+    team: 'Built with Alfie Cooper, Grace Martin, Lee Vidlak Brooker and Ro Armitage',
     role: 'App design, React Native development, user testing',
     highlights: [
       'Designed every screen and the user flow in Figma, and created the style guide used across the app, presentation and toy.',
@@ -32,20 +72,31 @@ export const projects = [
     },
   },
   {
-    id: 'second-project',
-    title: 'Second project title',
-    category: 'Placeholder · Mobile-first site',
-    year: '2025',
+    id: 'vr-cat-cafe',
+    title: 'VR Cat Café',
+    category: 'Solo project · Virtual reality',
+    year: '2025', // CHECK: change if this module ran in a different year
     summary:
-      'Describe the purpose of this project in a sentence or two. A university module brief, a personal experiment or a site for a friend all count.',
-    role: 'UI design, prototyping, build',
-    tech: ['HTML', 'CSS', 'Responsive design'],
+      'A cosy, explorable cat café built in Unity for VR headsets. Visitors can wander the room, pick up food, drinks and toys with their hand controllers, and choose from six vinyl records to play on a working record player.',
+    role: 'Concept, environment design, Unity development',
+    highlights: [
+      'Built the custom vinyl player interaction: records snap into place on the player with an XR Socket Interactor and play their own song, using a small C# script.',
+      'Sourced and imported my own Unity Asset Store assets, fixing materials for URP and adding colliders so objects behaved properly when picked up.',
+      'Tested the room in a headset and decluttered the layout, removing objects and unused assets to make it feel calmer and run more smoothly.',
+    ],
+    tech: ['Unity', 'C#', 'XR Interaction Toolkit', 'URP'],
     liveUrl: '',
-    codeUrl: '',
-    placeholder: true,
+    codeUrl: 'https://github.com/KatieMari/VR-Room',
+    placeholder: false,
     preview: {
-      type: 'phone',
-      palette: { bg: '#2f2a4a', surface: '#3d3760', ink: '#fdf6ee', accent: '#ffb86b', soft: '#8f86c9' },
+      type: 'scene',
+      image: '/projects/vr-cafe-counter.webp',
+      imageAlt: 'View inside the VR cat café: a cake counter, donut display, wall clock and a shelf of vinyl records',
+      insets: [
+        { src: '/projects/vr-cafe-welcome.webp', alt: 'In-headset welcome panel reading “Welcome to Your Cat Cafe!” above pink café tables' },
+        { src: '/projects/vr-cafe-vinyl.webp', alt: 'A VR controller placing a vinyl record onto the record player' },
+      ],
+      palette: { bg: '#2b2130', surface: '#ffffff', ink: '#2b2130', accent: '#ff8fb3', soft: '#f6d3c4' },
     },
   },
   {

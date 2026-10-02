@@ -35,6 +35,22 @@ export default function ProjectPreview({ project }) {
     );
   }
 
+  // One large screenshot with small close-ups floating over it (games, VR, 3D)
+  if (preview.type === 'scene' && preview.image) {
+    return (
+      <div className="pv pv--scene" style={style}>
+        <figure className="pv-scene__main">
+          <img src={preview.image} alt={preview.imageAlt || `Screenshot of ${title}`} loading="lazy" />
+        </figure>
+        {(preview.insets || []).slice(0, 2).map((inset, i) => (
+          <figure key={inset.src} className={`pv-scene__inset pv-scene__inset--${i + 1}`}>
+            <img src={inset.src} alt={inset.alt} loading="lazy" />
+          </figure>
+        ))}
+      </div>
+    );
+  }
+
   if (preview.type === 'phone') {
     return (
       <div className="pv pv--phone" style={style} aria-hidden={image ? undefined : 'true'}>
