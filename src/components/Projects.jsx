@@ -104,12 +104,22 @@ function Project({ project, index }) {
           />
           <ProjectLink
             href={project.codeUrl}
-            label="Code on GitHub"
+            label={project.codeLabel || 'Code on GitHub'}
             icon="github"
             title={project.title}
             variant={project.liveUrl ? 'ghost' : undefined}
             isPlaceholder={project.placeholder}
           />
+          {(project.codeLinks || []).map((link) => (
+            <ProjectLink
+              key={link.url}
+              href={link.url}
+              label={link.label}
+              icon="github"
+              title={project.title}
+              variant="ghost"
+            />
+          ))}
         </div>
       </div>
     </Reveal>

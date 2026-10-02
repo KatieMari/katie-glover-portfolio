@@ -19,6 +19,9 @@
  *  liveLabel    Optional button text for liveUrl (default "View live site"),
  *               e.g. "Watch the demo" if you link to a video.
  *  codeUrl      Link to the GitHub repo. Leave '' if there isn't one.
+ *  codeLabel    Optional button text for codeUrl (default "Code on GitHub").
+ *  codeLinks    Optional extra repo links, e.g. a separate back end:
+ *               [{ label: 'Back-end code', url: '…' }]
  *  placeholder  true = shows a dashed "placeholder" label and "coming soon"
  *               buttons. Set false for real projects.
  *
@@ -40,116 +43,92 @@
 
 export const projects = [
   {
-    id: "power-pals",
-    title: "Power Pals",
-    category: "Group project · Mobile app",
-    year: "2026", // CHECK: change if this module ran in a different year
+    id: 'power-pals',
+    title: 'Power Pals',
+    category: 'Group project · Mobile app',
+    year: '2026', // CHECK: change if this module ran in a different year
     summary:
-      "A self-powered toy robot and companion app that teach children aged 6–11 why saving energy matters. Kids generate power with a hand crank, a button or sunlight, then use the app to follow the charge, discover energy facts and test themselves with quizzes.",
-    team: "Built with Alfie Cooper, Grace Martin, Lee Vidlak Brooker and Ro Armitage",
-    role: "App design, React Native development, user testing",
+      'A self-powered toy robot and companion app that teach children aged 6–11 why saving energy matters. Kids generate power with a hand crank, a button or sunlight, then use the app to follow the charge, discover energy facts and test themselves with quizzes.',
+    team: 'Built with Alfie Cooper, Grace Martin, Lee Vidlak Brooker and Ro Armitage',
+    role: 'App design, React Native development, user testing',
     highlights: [
-      "Designed every screen and the user flow in Figma, and created the style guide used across the app, presentation and toy.",
-      "Ledthe app build  in React Native with Expo Router, building reusable components for navigation, headers, the battery card and settings.",
-      "Ran testing with children using observation and survey forms, then added a welcome modal and reordered the home page in response.",
+      'Designed every screen and the user flow in Figma, and created the style guide used across the app, presentation and toy.',
+      'Coded most of the app in React Native with Expo Router, building reusable components for navigation, headers, the battery card and settings.',
+      'Ran testing with children using observation and survey forms, then added a welcome modal and reordered the home page in response.',
     ],
     quote: {
-      text: "I’d tell my friends “free power!” and I think they would like it too.",
-      source: "Child tester, age 11",
+      text: 'I’d tell my friends “free power!” and I think they would like it too.',
+      source: 'Child tester, age 11',
     },
-    tech: ["React Native", "Expo", "Expo Router", "JavaScript", "Figma"],
-    liveUrl: "https://youtu.be/fpZ06KiUATg",
-    liveLabel: "Watch the walkthrough",
-    codeUrl: "https://github.com/leeBrookerNUA/Bsc2b_CollaborativeApp",
+    tech: ['React Native', 'Expo', 'Expo Router', 'JavaScript', 'Figma'],
+    liveUrl: 'https://youtu.be/fpZ06KiUATg',
+    liveLabel: 'Watch the walkthrough',
+    codeUrl: 'https://github.com/leeBrookerNUA/Bsc2b_CollaborativeApp',
     placeholder: false,
     preview: {
-      type: "phones",
+      type: 'phones',
       images: [
-        {
-          src: "/projects/powerpals-home.webp",
-          alt: "Power Pals home screen with Instructions, Facts & Tips, Quiz and Start buttons",
-        },
-        {
-          src: "/projects/powerpals-play.webp",
-          alt: "Play screen showing a battery charging to 65% as the hand crank turns",
-        },
-        {
-          src: "/projects/powerpals-quiz.webp",
-          alt: "Easy quiz screen asking which energy source comes from the sun, with Solar marked correct",
-        },
+        { src: '/projects/powerpals-home.webp', alt: 'Power Pals home screen with Instructions, Facts & Tips, Quiz and Start buttons' },
+        { src: '/projects/powerpals-play.webp', alt: 'Play screen showing a battery charging to 65% as the hand crank turns' },
+        { src: '/projects/powerpals-quiz.webp', alt: 'Easy quiz screen asking which energy source comes from the sun, with Solar marked correct' },
       ],
-      palette: {
-        bg: "#5b8def",
-        surface: "#ffffff",
-        ink: "#1d2b5c",
-        accent: "#ffcf4d",
-        soft: "#c9dcff",
-      },
+      palette: { bg: '#5b8def', surface: '#ffffff', ink: '#1d2b5c', accent: '#ffcf4d', soft: '#c9dcff' },
     },
   },
   {
-    id: "vr-cat-cafe",
-    title: "VR Cat Café",
-    category: "Solo project · Virtual reality",
-    year: "2025", // CHECK: change if this module ran in a different year
+    id: 'vr-cat-cafe',
+    title: 'VR Cat Café',
+    category: 'Solo project · Virtual reality',
+    year: '2025', // CHECK: change if this module ran in a different year
     summary:
-      "A cosy, explorable cat café built in Unity for VR headsets. Visitors can wander the room, pick up food, drinks and toys with their hand controllers, and choose from six vinyl records to play on a working record player.",
-    role: "Concept, environment design, Unity development",
+      'A cosy, explorable cat café built in Unity for VR headsets. Visitors can wander the room, pick up food, drinks and toys with their hand controllers, and choose from six vinyl records to play on a working record player.',
+    role: 'Concept, environment design, Unity development',
     highlights: [
-      "Built the custom vinyl player interaction: records snap into place on the player with an XR Socket Interactor and play their own song, using a small C# script.",
-      "Sourced and imported my own Unity Asset Store assets, fixing materials for URP and adding colliders so objects behaved properly when picked up.",
-      "Tested the room in a headset and decluttered the layout, removing objects and unused assets to make it feel calmer and run more smoothly.",
+      'Built the custom vinyl player interaction: records snap into place on the player with an XR Socket Interactor and play their own song, using a small C# script.',
+      'Sourced and imported my own Unity Asset Store assets, fixing materials for URP and adding colliders so objects behaved properly when picked up.',
+      'Tested the room in a headset and decluttered the layout, removing objects and unused assets to make it feel calmer and run more smoothly.',
     ],
-    tech: ["Unity", "C#", "XR Interaction Toolkit", "URP"],
-    liveUrl: "https://youtu.be/y69z5z5lLTk",
-    liveLabel: "Watch the walkthrough",
-    codeUrl: "https://github.com/KatieMari/VR-Room",
+    tech: ['Unity', 'C#', 'XR Interaction Toolkit', 'URP'],
+    liveUrl: 'https://youtu.be/y69z5z5lLTk',
+    liveLabel: 'Watch the walkthrough',
+    codeUrl: 'https://github.com/KatieMari/VR-Room',
     placeholder: false,
     preview: {
-      type: "scene",
-      image: "/projects/vr-cafe-counter.webp",
-      imageAlt:
-        "View inside the VR cat café: a cake counter, donut display, wall clock and a shelf of vinyl records",
+      type: 'scene',
+      image: '/projects/vr-cafe-counter.webp',
+      imageAlt: 'View inside the VR cat café: a cake counter, donut display, wall clock and a shelf of vinyl records',
       insets: [
-        {
-          src: "/projects/vr-cafe-welcome.webp",
-          alt: "In-headset welcome panel reading “Welcome to Your Cat Cafe!” above pink café tables",
-        },
-        {
-          src: "/projects/vr-cafe-vinyl.webp",
-          alt: "A VR controller placing a vinyl record onto the record player",
-        },
+        { src: '/projects/vr-cafe-welcome.webp', alt: 'In-headset welcome panel reading “Welcome to Your Cat Cafe!” above pink café tables' },
+        { src: '/projects/vr-cafe-vinyl.webp', alt: 'A VR controller placing a vinyl record onto the record player' },
       ],
-      palette: {
-        bg: "#2b2130",
-        surface: "#ffffff",
-        ink: "#2b2130",
-        accent: "#ff8fb3",
-        soft: "#f6d3c4",
-      },
+      palette: { bg: '#2b2130', surface: '#ffffff', ink: '#2b2130', accent: '#ff8fb3', soft: '#f6d3c4' },
     },
   },
   {
-    id: "third-project",
-    title: "Third project title",
-    category: "Placeholder · Creative coding",
-    year: "2025",
+    id: 'my-water-footprint',
+    title: 'My Water Footprint',
+    category: 'Solo project · Full-stack website',
+    year: '2026', // CHECK: change if this module ran in a different year
     summary:
-      "Explain what you explored or built here and what you learned. Interactive, experimental or editorial work is a great way to show range.",
-    role: "Concept, interaction, development",
-    tech: ["JavaScript", "Canvas / p5.js", "Git"],
-    liveUrl: "",
-    codeUrl: "",
-    placeholder: true,
+      'A website supporting UN Sustainable Development Goal 6 (clean water and sanitation). Visitors enter their weekly showers, laundry and diet, and the calculator estimates their daily water use, with facts, practical ways to cut back and links to clean-water charities.',
+    role: 'Design, front-end and back-end development',
+    highlights: [
+      'Built the front end in React with Vite and React Router across five pages, with a Chart.js chart breaking down each result.',
+      'Wrote a REST API in Node, Express and TypeScript, keeping the calculation in its own function: the calculator posts answers to /api/calculate and gets back total litres, a breakdown and personalised advice.',
+      'Deployed both halves to Vercel and fixed a 404 on page refresh by adding a vercel.json rewrite, so React Router could handle every route.',
+    ],
+    tech: ['React', 'Vite', 'React Router', 'Chart.js', 'Node.js', 'Express', 'TypeScript', 'Mongoose'],
+    liveUrl: 'https://front-end-bice-iota.vercel.app',
+    liveLabel: 'Try the calculator',
+    codeUrl: 'https://github.com/KatieMari/FrontEnd',
+    codeLabel: 'Front-end code',
+    codeLinks: [{ label: 'Back-end code', url: 'https://github.com/KatieMari/BackEnd' }],
+    placeholder: false,
     preview: {
-      type: "editorial",
-      palette: {
-        bg: "#e9efe4",
-        surface: "#f7f9f3",
-        ink: "#1f2a22",
-        accent: "#3f7d5a",
-        soft: "#c6d8bf",
-      },
+      type: 'browser',
+      image: '/projects/water-footprint-results.webp',
+      imageAlt: 'Calculator results showing 693 litres a day, a breakdown by showers and laundry, a bar chart and personalised advice',
+      palette: { bg: '#f4f9ff', surface: '#ffffff', ink: '#1e3a5f', accent: '#3a86e0', soft: '#cfe6fb' },
     },
   },
 ];

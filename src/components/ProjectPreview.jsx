@@ -8,7 +8,10 @@ import './ProjectPreview.css';
  *    just like a real screenshot would).
  */
 export default function ProjectPreview({ project }) {
-  const { preview = { type: 'browser' }, image, imageAlt, title } = project;
+  const { preview = { type: 'browser' }, title } = project;
+  // A screenshot can live on the project itself or inside `preview`
+  const image = project.image || preview.image;
+  const imageAlt = project.imageAlt || preview.imageAlt;
   const p = preview.palette || {};
   const style = {
     '--p-bg': p.bg,
