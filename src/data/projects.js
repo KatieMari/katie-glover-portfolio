@@ -50,7 +50,7 @@ export const projects = [
     role: 'App design, React Native development, user testing',
     highlights: [
       'Designed every screen and the user flow in Figma, and created the style guide used across the app, presentation and toy.',
-      'Coded most of the app in React Native with Expo Router, building reusable components for navigation, headers, the battery card and settings.',
+      'Ledthe app build  in React Native with Expo Router, building reusable components for navigation, headers, the battery card and settings.',
       'Ran testing with children using observation and survey forms, then added a welcome modal and reordered the home page in response.',
     ],
     quote: {
