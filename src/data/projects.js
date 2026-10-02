@@ -117,7 +117,7 @@ export const projects = [
       'Wrote a REST API in Node, Express and TypeScript, keeping the calculation in its own function: the calculator posts answers to /api/calculate and gets back total litres, a breakdown and personalised advice.',
       'Deployed both halves to Vercel and fixed a 404 on page refresh by adding a vercel.json rewrite, so React Router could handle every route.',
     ],
-    tech: ['React', 'Vite', 'React Router', 'Chart.js', 'Node.js', 'Express', 'TypeScript', 'Mongoose'],
+    tech: ['React', 'Vite', 'React Router', 'Chart.js', 'Node.js', 'Express', 'TypeScript'],
     liveUrl: 'https://front-end-bice-iota.vercel.app',
     liveLabel: 'Try the calculator',
     codeUrl: 'https://github.com/KatieMari/FrontEnd',
