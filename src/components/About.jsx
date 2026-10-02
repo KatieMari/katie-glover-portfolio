@@ -47,13 +47,18 @@ export default function About() {
             </p>
             <p>
               I enjoy taking an idea from a rough sketch to something people can
-              click, tap and explore — paying attention to layout, motion and
-              the small details that make an interface feel considered.
+              click, tap and explore, paying attention to layout, motion and the
+              small details that make an interface feel considered.
             </p>
             <p>
-              Right now I’m focused on growing: developing my skills, exploring
-              new technologies, and building websites and applications that are
-              both visually appealing and intuitive to use.
+              <p>
+                I’m still refining my skills and enjoy experimenting across
+                different languages and tools. Picking up something new and
+                figuring out how it works is one of my favourite parts of the
+                process. Right now I’m focused on building websites and
+                applications that are both visually appealing and intuitive to
+                use.
+              </p>
             </p>
           </Reveal>
 
