@@ -1,7 +1,6 @@
-import Reveal from './Reveal.jsx';
-import PlaceholderBadge from './PlaceholderBadge.jsx';
-import { site } from '../data/site.js';
-import './About.css';
+import Reveal from "./Reveal.jsx";
+import { site } from "../data/site.js";
+import "./About.css";
 
 export default function About() {
   return (
@@ -10,13 +9,18 @@ export default function About() {
         <Reveal className="about__portrait">
           <figure className="portrait">
             {site.photo ? (
-              <img src={site.photo} alt={site.photoAlt} width="480" height="600" loading="lazy" />
+              <img
+                src={site.photo}
+                alt={site.photoAlt}
+                width="480"
+                height="600"
+                loading="lazy"
+              />
             ) : (
               <div className="portrait__placeholder">
                 <span className="portrait__initials" aria-hidden="true">
                   K<em>g</em>
                 </span>
-                <PlaceholderBadge>Add your photo</PlaceholderBadge>
               </div>
             )}
           </figure>
@@ -37,16 +41,19 @@ export default function About() {
 
           <Reveal className="about__bio" delay={100}>
             <p>
-              I’m Katie, a final-year {site.course} student at {site.university}. I’m drawn to front-end
-              development because it sits right where creative thinking and technical problem-solving meet.
+              I’m Katie, a final-year {site.course} student at {site.university}
+              . I’m drawn to front-end development because it sits right where
+              creative thinking and technical problem-solving meet.
             </p>
             <p>
-              I enjoy taking an idea from a rough sketch to something people can click, tap and explore —
-              paying attention to layout, motion and the small details that make an interface feel considered.
+              I enjoy taking an idea from a rough sketch to something people can
+              click, tap and explore — paying attention to layout, motion and
+              the small details that make an interface feel considered.
             </p>
             <p>
-              Right now I’m focused on growing: developing my skills, exploring new technologies, and
-              building websites and applications that are both visually appealing and intuitive to use.
+              Right now I’m focused on growing: developing my skills, exploring
+              new technologies, and building websites and applications that are
+              both visually appealing and intuitive to use.
             </p>
           </Reveal>
 

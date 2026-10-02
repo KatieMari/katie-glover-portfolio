@@ -1,10 +1,6 @@
 import { useId } from 'react';
 import './ThemeToggle.css';
 
-/**
- * ThemeToggle — sun (light) that morphs into a moon (dark).
- * The accessible label always describes the action the button will take.
- */
 export default function ThemeToggle({ theme, onToggle }) {
   const maskId = useId();
   const isDark = theme === 'dark';
