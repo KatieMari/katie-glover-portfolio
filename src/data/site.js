@@ -37,6 +37,7 @@ export const site = {
     { label: 'Learning', value: 'React and accessible component patterns' },
     { label: 'Watching', value: 'Game of Thrones' },
     { label: 'Off-screen', value: 'Creating art and doing jigsaw puzzles' },
+    { label: 'Looking for', value: 'Graduate front-end roles' },
   ],
 
   // Words that scroll across the marquee strip between sections.
