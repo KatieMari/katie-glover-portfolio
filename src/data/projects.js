@@ -58,7 +58,8 @@ export const projects = [
       source: "Child tester, age 11",
     },
     tech: ["React Native", "Expo", "Expo Router", "JavaScript", "Figma"],
-    liveUrl: "",
+    liveUrl: "https://youtu.be/fpZ06KiUATg",
+    liveLabel: "Watch the walkthrough",
     codeUrl: "https://github.com/leeBrookerNUA/Bsc2b_CollaborativeApp",
     placeholder: false,
     preview: {
