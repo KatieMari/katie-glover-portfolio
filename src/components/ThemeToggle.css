@@ -1,0 +1,55 @@
+.theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface);
+  color: var(--color-text);
+  transition:
+    transform var(--dur-med) var(--ease-spring),
+    border-color var(--dur-fast) ease,
+    background-color var(--dur-fast) ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(-12deg) scale(1.06);
+  border-color: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+
+[data-theme='dark'] .theme-toggle:hover {
+  color: var(--color-accent);
+}
+
+.theme-toggle svg {
+  overflow: visible;
+}
+
+.theme-toggle__core,
+.theme-toggle__cut,
+.theme-toggle__rays {
+  transform-origin: 12px 12px;
+  transition: transform 500ms var(--ease-out), opacity 300ms ease;
+}
+
+/* Light mode: small sun, rays out, the "bite" parked off-canvas. */
+.theme-toggle__cut {
+  transform: translate(14px, -14px);
+}
+
+/* Dark mode: bigger disc with a bite taken out = crescent moon. */
+.theme-toggle[data-mode='dark'] .theme-toggle__core {
+  transform: scale(1.7);
+}
+
+.theme-toggle[data-mode='dark'] .theme-toggle__cut {
+  transform: translate(5px, -4px);
+}
+
+.theme-toggle[data-mode='dark'] .theme-toggle__rays {
+  transform: rotate(-60deg) scale(0.4);
+  opacity: 0;
+}

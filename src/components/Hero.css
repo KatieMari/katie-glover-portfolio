@@ -1,0 +1,422 @@
+.hero {
+  position: relative;
+  padding-block: clamp(2rem, 1rem + 5vw, 5rem) clamp(4rem, 3rem + 5vw, 7rem);
+  min-height: calc(100svh - var(--header-h));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero__inner {
+  display: grid;
+  gap: clamp(2.5rem, 2rem + 3vw, 4rem);
+  align-items: center;
+}
+
+@media (min-width: 62em) {
+  .hero__inner {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+  }
+}
+
+/* Copy --------------------------------------------------------------------- */
+.hero__label {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.6rem;
+  padding: 0.45rem 0.95rem 0.45rem 0.75rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  font-size: var(--step--1);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.hero__label-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 22%, transparent);
+  animation: pulse 2.6s ease-in-out infinite;
+}
+
+.hero__label-sep {
+  color: var(--color-border-strong);
+}
+
+@media (max-width: 35em) {
+  .hero__label {
+    border-radius: var(--radius-md);
+  }
+  .hero__label-sep {
+    display: none;
+  }
+  .hero__label-uni {
+    flex-basis: 100%;
+    padding-left: 1.15rem;
+  }
+}
+
+.hero__label-uni {
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+@keyframes pulse {
+  50% {
+    box-shadow: 0 0 0 7px color-mix(in srgb, var(--color-accent) 0%, transparent);
+  }
+}
+
+.hero__title {
+  margin-top: var(--space-lg);
+  font-size: var(--step-5);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  font-variation-settings: 'SOFT' 30, 'WONK' 0, 'opsz' 144;
+}
+
+/* Each line of the headline is set deliberately, so it never breaks awkwardly */
+.hero__line {
+  display: block;
+  white-space: nowrap;
+}
+
+.hero__title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-accent-ink);
+  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144;
+}
+
+[data-theme='dark'] .hero__title em {
+  color: var(--color-accent);
+}
+
+/* Small decorative pill tucked into the headline */
+.hero__pill {
+  display: inline-block;
+  vertical-align: 0.12em;
+  width: 1.45em;
+  height: 0.62em;
+  margin-right: 0.22em;
+  border-radius: var(--radius-pill);
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.hero__pill svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 120;
+  stroke-dashoffset: 120;
+  animation: draw 1.6s var(--ease-out) 0.6s forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.hero__intro {
+  margin-top: var(--space-lg);
+  max-width: 44ch;
+  font-size: var(--step-1);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+
+/* Entrance: stagger the hero copy on first load */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__copy > * {
+    animation: rise 900ms var(--ease-out) both;
+  }
+  .hero__copy > :nth-child(2) {
+    animation-delay: 90ms;
+  }
+  .hero__copy > :nth-child(3) {
+    animation-delay: 180ms;
+  }
+  .hero__copy > :nth-child(4) {
+    animation-delay: 270ms;
+  }
+  .hero__art {
+    animation: pop 1100ms var(--ease-out) 200ms both;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.94) rotate(-2deg);
+  }
+}
+
+/* Illustration -------------------------------------------------------------- */
+.hero__art {
+  --mx: 0;
+  --my: 0;
+  position: relative;
+  width: min(92%, 34rem);
+  aspect-ratio: 1 / 1;
+  margin-inline: auto;
+  container-type: inline-size;
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  transform: translate3d(calc(var(--mx) * var(--depth) * 1px), calc(var(--my) * var(--depth) * 1px), 0);
+  transition: transform 600ms var(--ease-out);
+  pointer-events: none;
+}
+
+.shape {
+  position: absolute;
+}
+
+.shape--blob {
+  inset: 12% 6% 16% 22%;
+  background: var(--color-accent);
+  border-radius: 58% 42% 46% 54% / 52% 48% 52% 48%;
+  animation: blob 14s ease-in-out infinite alternate;
+}
+
+@keyframes blob {
+  33% {
+    border-radius: 44% 56% 60% 40% / 42% 60% 40% 58%;
+    transform: rotate(8deg);
+  }
+  66% {
+    border-radius: 60% 40% 38% 62% / 58% 38% 62% 42%;
+    transform: rotate(-6deg);
+  }
+  100% {
+    border-radius: 50% 50% 44% 56% / 46% 54% 46% 54%;
+    transform: rotate(4deg);
+  }
+}
+
+.shape--arch {
+  left: 8%;
+  bottom: 2%;
+  width: 30%;
+  height: 36%;
+  background: var(--color-shape-deep);
+  border-radius: 999px 999px 1.2rem 1.2rem;
+  animation: sway 9s ease-in-out infinite alternate;
+  transform-origin: bottom center;
+}
+
+@keyframes sway {
+  to {
+    transform: rotate(-5deg);
+  }
+}
+
+.shape--ring {
+  top: 2%;
+  left: 6%;
+  width: 34%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px dashed var(--color-border-strong);
+  animation: spin 40s linear infinite;
+}
+
+.shape--dots {
+  right: 0;
+  bottom: 0;
+  width: 46%;
+  height: 34%;
+  background-image: radial-gradient(var(--color-text-secondary) 1.4px, transparent 1.6px);
+  background-size: 14px 14px;
+  opacity: 0.45;
+  border-radius: var(--radius-md);
+}
+
+.shape--squiggle {
+  top: 6%;
+  right: 4%;
+  width: 34%;
+  fill: none;
+  stroke: var(--color-text);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+}
+
+.shape--star {
+  left: 40%;
+  bottom: 6%;
+  width: 11%;
+  fill: var(--color-highlight);
+  animation: twinkle 5s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  50% {
+    transform: rotate(45deg) scale(0.85);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Code card */
+.code-card {
+  position: absolute;
+  left: 0;
+  top: 24%;
+  width: 66%;
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+  transform: rotate(-5deg);
+  overflow: hidden;
+  font-size: clamp(0.62rem, 2.65cqi, 0.92rem);
+}
+
+.code-card__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.7em 0.9em;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.code-card__bar span {
+  width: 0.7em;
+  height: 0.7em;
+  border-radius: 50%;
+  background: var(--color-border-strong);
+}
+
+.code-card__bar span:first-child {
+  background: var(--color-accent);
+}
+
+.code-card__bar p {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  color: var(--color-text-secondary);
+}
+
+.code-card__body {
+  padding: 0.9em 1.1em 1.1em;
+  font-family: var(--font-mono);
+  font-size: 1em;
+  line-height: 1.7;
+  color: var(--color-text);
+  white-space: pre;
+  overflow: hidden;
+}
+
+.tok-key {
+  color: var(--color-accent-ink);
+  font-weight: 600;
+}
+
+[data-theme='dark'] .tok-key {
+  color: var(--color-accent);
+}
+
+.tok-str {
+  color: var(--color-text-secondary);
+}
+
+/* Rotating badge */
+.badge {
+  position: absolute;
+  right: 2%;
+  bottom: 18%;
+  width: 28%;
+  overflow: visible;
+}
+
+.badge__bg {
+  fill: var(--color-bg);
+  stroke: var(--color-text);
+  stroke-width: 1.5;
+}
+
+.badge text {
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  fill: var(--color-text);
+}
+
+.badge__spin {
+  transform-origin: 60px 60px;
+  animation: spin 22s linear infinite;
+}
+
+.badge__star {
+  fill: var(--color-accent);
+}
+
+/* Scroll cue --------------------------------------------------------------- */
+.hero__scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 1.25rem;
+  transform: translateX(-50%);
+  display: none;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+}
+
+.hero__scroll svg {
+  width: 1rem;
+  height: 1rem;
+  animation: nudge 2s ease-in-out infinite;
+}
+
+@keyframes nudge {
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+@media (min-width: 62em) and (min-height: 44em) {
+  .hero__scroll {
+    display: inline-flex;
+  }
+}

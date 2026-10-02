@@ -1,0 +1,219 @@
+.about__grid {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 56em) {
+  .about__grid {
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.4fr);
+    gap: clamp(2.5rem, 6vw, 6rem);
+    align-items: start;
+  }
+
+  .about__portrait {
+    max-width: 22rem;
+    position: sticky;
+    top: calc(var(--header-h) + 2rem);
+  }
+}
+
+/* Portrait (arch frame) ----------------------------------------------------- */
+.about__portrait {
+  position: relative;
+  max-width: min(16rem, 75%);
+  width: 100%;
+  margin-inline: auto;
+}
+
+.portrait {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 999px 999px var(--radius-lg) var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+}
+
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.portrait__placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: var(--space-md);
+  background:
+    radial-gradient(circle at 30% 25%, var(--color-shape-soft) 0 22%, transparent 23%),
+    radial-gradient(circle at 75% 80%, color-mix(in srgb, var(--color-accent) 30%, transparent) 0 26%, transparent 27%),
+    var(--color-bg-alt);
+}
+
+.portrait__initials {
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 14vw, 8rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  color: var(--color-text);
+}
+
+.portrait__initials em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-accent-ink);
+  font-variation-settings: 'SOFT' 100, 'WONK' 1;
+}
+
+[data-theme='dark'] .portrait__initials em {
+  color: var(--color-accent);
+}
+
+.portrait__sticker {
+  position: absolute;
+  right: -0.5rem;
+  top: 12%;
+  display: grid;
+  place-items: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  background: var(--color-highlight);
+  color: var(--color-on-highlight);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.5rem;
+  font-weight: 600;
+  transform: rotate(12deg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur-med) var(--ease-spring);
+}
+
+.about__portrait:hover .portrait__sticker {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+/* Bio ------------------------------------------------------------------------ */
+.about__bio {
+  margin-top: var(--space-lg);
+  display: grid;
+  gap: var(--space-md);
+  max-width: 60ch;
+  font-size: var(--step-1);
+  line-height: 1.6;
+}
+
+.about__bio p:not(:first-child) {
+  color: var(--color-text-secondary);
+  font-size: var(--step-0);
+  line-height: 1.7;
+}
+
+/* Facts + currently ---------------------------------------------------------- */
+.about__extras {
+  display: grid;
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+@media (min-width: 40em) {
+  .about__extras {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+.facts {
+  display: grid;
+  border-top: 1px solid var(--color-border-strong);
+}
+
+.facts > div {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: var(--space-sm);
+  padding-block: 0.85rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.facts dt {
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  padding-top: 0.15rem;
+}
+
+.facts dd {
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.currently {
+  position: relative;
+  padding: var(--space-md) var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .currently.is-visible {
+    transform: rotate(1.2deg);
+  }
+}
+
+/* A little "washi tape" strip */
+.currently::before {
+  content: '';
+  position: absolute;
+  top: -0.65rem;
+  left: 50%;
+  width: 5rem;
+  height: 1.3rem;
+  transform: translateX(-50%) rotate(-3deg);
+  background: color-mix(in srgb, var(--color-accent) 35%, transparent);
+  border-radius: 3px;
+}
+
+.currently__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--step-2);
+  font-variation-settings: 'SOFT' 100, 'WONK' 1;
+}
+
+.currently ul {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: var(--space-sm);
+}
+
+.currently li {
+  display: grid;
+  gap: 0.1rem;
+  line-height: 1.45;
+}
+
+.currently li span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent-ink);
+}
+
+[data-theme='dark'] .currently li span {
+  color: var(--color-accent);
+}

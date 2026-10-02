@@ -1,0 +1,521 @@
+/* ==========================================================================
+   Project previews. Colours INSIDE a mock-up come from the project's own
+   palette (--p-*), set in projects.js. The stage around it adapts to the theme.
+   ========================================================================== */
+
+.pv {
+  position: relative;
+  container-type: inline-size;
+  aspect-ratio: 4 / 3.2;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  /* Tint the stage with the project's colour, blended into the active theme. */
+  background: color-mix(in srgb, var(--p-soft, var(--color-shape-soft)) 62%, var(--color-bg));
+  border: 1px solid var(--color-border);
+}
+
+/* Soft background shape behind every preview */
+[data-theme='dark'] .pv {
+  background: color-mix(in srgb, var(--p-soft, var(--color-shape-soft)) 16%, var(--color-surface-alt));
+}
+
+.pv::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 70%;
+  aspect-ratio: 1;
+  right: -12%;
+  top: -20%;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--p-accent) 22%, transparent);
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+
+.pv > * {
+  font-size: clamp(5px, 1.55cqi, 14px);
+}
+
+.pv-shot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* Generic mock-up building blocks */
+.pv-line {
+  display: block;
+  height: 0.6em;
+  width: 100%;
+  border-radius: 1em;
+  background: var(--p-ink);
+  opacity: 0.85;
+}
+
+.pv-line--xs {
+  width: 3em;
+  opacity: 0.55;
+}
+.pv-line--sm {
+  width: 35%;
+}
+.pv-line--md {
+  width: 62%;
+}
+.pv-line--lg {
+  width: 78%;
+  height: 1.5em;
+}
+.pv-line--xl {
+  width: 92%;
+  height: 1.5em;
+}
+.pv-line--title {
+  height: 1.3em;
+  width: 70%;
+}
+.pv-line--muted {
+  opacity: 0.35;
+}
+
+.pv-dot {
+  width: 1.4em;
+  height: 1.4em;
+  border-radius: 50%;
+  background: var(--p-accent);
+  flex-shrink: 0;
+}
+
+.pv-chip {
+  display: block;
+  width: 2.4em;
+  height: 2.4em;
+  border-radius: 0.7em;
+  background: var(--p-soft);
+  flex-shrink: 0;
+}
+
+/* --- Browser ------------------------------------------------------------ */
+.pv-window {
+  width: 86%;
+  border-radius: 1.2em;
+  overflow: hidden;
+  background: var(--p-bg);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(6%);
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+
+.pv-window__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.9em 1.1em;
+  background: var(--p-surface);
+  border-bottom: 1px solid color-mix(in srgb, var(--p-ink) 10%, transparent);
+}
+
+.pv-window__bar > span {
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--p-ink) 22%, transparent);
+}
+
+.pv-window__url {
+  flex: 1;
+  max-width: 45%;
+  height: 1.5em;
+  margin-left: 1em;
+  border-radius: 1em;
+  background: color-mix(in srgb, var(--p-ink) 7%, transparent);
+}
+
+.pv-window__screen {
+  padding: 1.4em 2em 2em;
+  aspect-ratio: 16 / 10;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8em;
+}
+
+.pv-window__screen:has(.pv-shot) {
+  padding: 0;
+}
+
+.pv-site__nav {
+  display: flex;
+  align-items: center;
+  gap: 1.2em;
+}
+
+.pv-site__nav .pv-dot {
+  margin-right: auto;
+}
+
+.pv-site__btn {
+  display: block;
+  width: 5em;
+  height: 1.8em;
+  border-radius: 1em;
+  background: var(--p-ink);
+}
+
+.pv-site__btn--lg {
+  width: 8em;
+  height: 2.6em;
+  background: var(--p-accent);
+  margin-top: 0.6em;
+}
+
+.pv-site__hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2em;
+  align-items: center;
+}
+
+.pv-site__copy {
+  display: grid;
+  gap: 0.8em;
+}
+
+.pv-site__visual {
+  position: relative;
+  aspect-ratio: 1.15;
+  border-radius: 1.2em;
+  background: var(--p-soft);
+  overflow: hidden;
+}
+
+.pv-site__circle {
+  position: absolute;
+  width: 62%;
+  aspect-ratio: 1;
+  left: 12%;
+  top: 16%;
+  border-radius: 50%;
+  background: var(--p-accent);
+  transition: transform var(--dur-slow) var(--ease-spring);
+}
+
+.pv-site__square {
+  position: absolute;
+  width: 34%;
+  aspect-ratio: 1;
+  right: 10%;
+  bottom: 10%;
+  border-radius: 0.8em;
+  background: var(--p-ink);
+  transform: rotate(12deg);
+  transition: transform var(--dur-slow) var(--ease-spring);
+}
+
+.pv-site__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1em;
+}
+
+.pv-site__card {
+  display: grid;
+  gap: 0.7em;
+  padding: 1.1em;
+  border-radius: 1em;
+  background: var(--p-surface);
+  box-shadow: 0 0.2em 0.8em color-mix(in srgb, var(--p-ink) 8%, transparent);
+}
+
+/* --- Phone -------------------------------------------------------------- */
+.pv--phone {
+  gap: 0;
+}
+
+.pv-phone {
+  position: relative;
+  width: 36%;
+  aspect-ratio: 9 / 18.5;
+  padding: 0.7em;
+  border-radius: 3.2em;
+  background: #141018; /* device hardware — always near-black, like a real phone */
+  box-shadow: var(--shadow-lg);
+  transform: translateY(14%) rotate(-4deg);
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+
+.pv-phone__notch {
+  position: absolute;
+  top: 1.4em;
+  left: 50%;
+  z-index: 2;
+  width: 26%;
+  height: 1.5em;
+  border-radius: 1em;
+  background: #141018;
+  transform: translateX(-50%);
+}
+
+.pv-phone__screen {
+  height: 100%;
+  border-radius: 2.6em;
+  overflow: hidden;
+  background: var(--p-bg);
+  padding: 3.6em 1.5em 1.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.pv-phone__screen:has(.pv-shot) {
+  padding: 0;
+}
+
+.pv-phone .pv-line {
+  background: var(--p-ink);
+}
+
+.pv-app__top {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+}
+
+.pv-app__top .pv-line {
+  flex: 1;
+}
+
+.pv-avatar {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  background: var(--p-soft);
+}
+
+.pv-app__hero {
+  position: relative;
+  flex-shrink: 0;
+  height: 11em;
+  border-radius: 1.5em;
+  background: var(--p-surface);
+  overflow: hidden;
+}
+
+.pv-app__orb {
+  position: absolute;
+  width: 8em;
+  height: 8em;
+  border-radius: 50%;
+  background: var(--p-accent);
+  left: -1.5em;
+  bottom: -2.5em;
+  transition: transform var(--dur-slow) var(--ease-spring);
+}
+
+.pv-app__orb--2 {
+  width: 5em;
+  height: 5em;
+  left: auto;
+  right: 1.2em;
+  top: 1.2em;
+  bottom: auto;
+  background: var(--p-soft);
+}
+
+.pv-app__list {
+  display: grid;
+  gap: 0.8em;
+  list-style: none;
+  padding: 0;
+}
+
+.pv-app__list li {
+  display: flex;
+  align-items: center;
+  gap: 0.9em;
+  padding: 0.7em;
+  border-radius: 1em;
+  background: var(--p-surface);
+}
+
+.pv-app__list .pv-chip {
+  background: var(--p-soft);
+  width: 2em;
+  height: 2em;
+}
+
+.pv-app__tabs {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.9em;
+  border-radius: 1.5em;
+  background: var(--p-surface);
+}
+
+.pv-app__tabs span {
+  width: 1.4em;
+  height: 1.4em;
+  border-radius: 0.5em;
+  background: color-mix(in srgb, var(--p-ink) 35%, transparent);
+}
+
+.pv-app__tabs .is-active {
+  background: var(--p-accent);
+}
+
+.pv-floating {
+  position: absolute;
+  right: 12%;
+  top: 22%;
+  width: 26%;
+  display: grid;
+  gap: 0.7em;
+  padding: 1.3em;
+  border-radius: 1.4em;
+  background: var(--p-surface);
+  box-shadow: var(--shadow-md);
+  transform: rotate(6deg);
+  transition: transform var(--dur-slow) var(--ease-spring);
+}
+
+.pv-floating .pv-line {
+  background: var(--p-ink);
+}
+
+.pv-floating__ring {
+  width: 4em;
+  height: 4em;
+  border-radius: 50%;
+  border: 0.7em solid var(--p-accent);
+  border-right-color: color-mix(in srgb, var(--p-ink) 20%, transparent);
+  margin-bottom: 0.4em;
+}
+
+/* --- Editorial ---------------------------------------------------------- */
+.pv-sheet {
+  width: 82%;
+  aspect-ratio: 4 / 3;
+  padding: 2.2em;
+  border-radius: 1em;
+  background: var(--p-bg);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 1.8em;
+  transform: rotate(2.5deg) translateY(5%);
+  transition: transform var(--dur-slow) var(--ease-out);
+  overflow: hidden;
+}
+
+.pv-sheet:has(.pv-shot) {
+  padding: 0;
+}
+
+.pv-ed__head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  padding-bottom: 1em;
+  border-bottom: 0.2em solid var(--p-ink);
+}
+
+.pv-ed__mast {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 4.2em;
+  line-height: 0.8;
+  color: var(--p-ink);
+}
+
+.pv-ed__body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
+}
+
+/* Concentric "generative" artwork */
+.pv-ed__art {
+  position: relative;
+  border-radius: 0.8em;
+  background: var(--p-soft);
+  overflow: hidden;
+}
+
+.pv-ed__art span {
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  width: calc(100% - var(--i) * 14%);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 0.25em solid var(--p-accent);
+  transform: translate(-50%, -50%);
+  opacity: calc(1 - var(--i) * 0.1);
+  transition: transform var(--dur-slow) var(--ease-out);
+  transition-delay: calc(var(--i) * 40ms);
+}
+
+.pv-ed__art span:nth-child(odd) {
+  border-color: var(--p-ink);
+}
+
+.pv-ed__cols {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+}
+
+.pv-ed__cols .pv-line {
+  height: 0.45em;
+  opacity: 0.55;
+}
+
+.pv-ed__cols .pv-line--title {
+  height: 1.4em;
+  opacity: 0.9;
+  margin-bottom: 0.6em;
+}
+
+.pv-ed__btn {
+  margin-top: auto;
+  width: 7em;
+  height: 2.2em;
+  border-radius: 2em;
+  background: var(--p-accent);
+}
+
+/* --- Hover interactions (applied when the whole project row is hovered) --- */
+@media (hover: hover) {
+  .project:hover .pv::before {
+    transform: scale(1.15) translate(-6%, 8%);
+  }
+  .project:hover .pv-window {
+    transform: translateY(3%) scale(1.02);
+  }
+  .project:hover .pv-site__circle {
+    transform: scale(1.12) translate(-6%, 4%);
+  }
+  .project:hover .pv-site__square {
+    transform: rotate(-8deg) translate(-8%, -10%);
+  }
+  .project:hover .pv-phone {
+    transform: translateY(9%) rotate(0deg);
+  }
+  .project:hover .pv-app__orb {
+    transform: scale(1.2);
+  }
+  .project:hover .pv-floating {
+    transform: rotate(-3deg) translate(8%, -10%);
+  }
+  .project:hover .pv-sheet {
+    transform: rotate(0deg) translateY(2%);
+  }
+  .project:hover .pv-ed__art span {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}

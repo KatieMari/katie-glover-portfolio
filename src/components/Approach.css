@@ -1,0 +1,121 @@
+/* The approach panel flips the palette: plum panel in light mode,
+   soft pink panel in dark mode. We simply re-point the tokens inside it,
+   so every child (eyebrow, headings, borders) adapts automatically. */
+.approach__panel {
+  --color-text: var(--color-inverse-text);
+  --color-text-secondary: var(--color-inverse-muted);
+  --color-accent-ink: var(--color-inverse-accent);
+  --color-focus: var(--color-inverse-accent);
+  --color-border: color-mix(in srgb, var(--color-inverse-text) 16%, transparent);
+  --color-border-strong: color-mix(in srgb, var(--color-inverse-text) 30%, transparent);
+
+  position: relative;
+  overflow: hidden;
+  padding: clamp(2.5rem, 2rem + 4vw, 5rem) clamp(1.5rem, 1rem + 4vw, 4.5rem);
+  border-radius: var(--radius-xl);
+  background: var(--color-inverse-bg);
+  color: var(--color-text);
+}
+
+/* Section-title em uses accent-ink in light and accent in dark; inside the
+   flipped panel we always want the panel's own accent. */
+.approach__panel .section-title em,
+[data-theme='dark'] .approach__panel .section-title em {
+  color: var(--color-inverse-accent);
+}
+
+.approach__header {
+  max-width: 40rem;
+}
+
+.approach__steps {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+  counter-reset: step;
+}
+
+@media (min-width: 40em) {
+  .approach__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-xl) var(--space-lg);
+  }
+}
+
+@media (min-width: 64em) {
+  .approach__steps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  /* Stagger the steps like stairs */
+  .step:nth-child(2) {
+    margin-top: 2.5rem;
+  }
+  .step:nth-child(3) {
+    margin-top: 5rem;
+  }
+  .step:nth-child(4) {
+    margin-top: 7.5rem;
+  }
+}
+
+.step {
+  position: relative;
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border-strong);
+}
+
+.step__num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 3rem + 3vw, 5.5rem);
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--color-text);
+  transition: color var(--dur-med) ease;
+}
+
+.step:hover .step__num {
+  color: var(--color-inverse-accent);
+  -webkit-text-stroke-color: var(--color-inverse-accent);
+}
+
+.step__title {
+  margin-top: var(--space-sm);
+  font-size: var(--step-2);
+  font-style: italic;
+  font-weight: 400;
+  font-variation-settings: 'SOFT' 100, 'WONK' 1;
+}
+
+.step__text {
+  margin-top: var(--space-xs);
+  color: var(--color-text-secondary);
+  font-size: var(--step--1);
+  line-height: 1.65;
+  max-width: 32ch;
+}
+
+.approach__doodle {
+  position: absolute;
+  right: -2rem;
+  top: 2rem;
+  width: clamp(10rem, 22vw, 18rem);
+  fill: none;
+  stroke: var(--color-inverse-accent);
+  stroke-width: 3;
+  stroke-linecap: round;
+  opacity: 0.9;
+}
+
+@media (max-width: 39.99em) {
+  .approach__doodle {
+    width: 8rem;
+    top: 1rem;
+    right: -1.5rem;
+  }
+}

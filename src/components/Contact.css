@@ -1,0 +1,162 @@
+/* Contact + footer share the soft pink sheet so the page ends on one note. */
+.contact {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  margin-top: var(--space-2xl);
+}
+
+.contact__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.contact__title {
+  margin-top: var(--space-md);
+  font-size: var(--step-5);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  max-width: 12ch;
+}
+
+.contact__title em {
+  display: inline-block;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-accent-ink);
+  font-variation-settings: 'SOFT' 100, 'WONK' 1;
+}
+
+[data-theme='dark'] .contact__title em {
+  color: var(--color-accent);
+}
+
+.contact__intro {
+  margin-top: var(--space-lg);
+  max-width: 50ch;
+  font-size: var(--step-1);
+  color: var(--color-text-secondary);
+}
+
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-md) var(--space-lg);
+}
+
+.contact__cta {
+  min-height: 3.75rem;
+  padding-inline: 2rem;
+  font-size: var(--step-1);
+}
+
+.contact__email {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  min-width: 0;
+}
+
+.contact__email-link {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+  color: var(--color-text);
+}
+
+.contact__copy {
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border-strong);
+  font-size: var(--step--1);
+  font-weight: 600;
+  transition: background-color var(--dur-fast) ease, border-color var(--dur-fast) ease;
+}
+
+.contact__copy:hover {
+  border-color: var(--color-text);
+  background: var(--color-surface);
+}
+
+.contact__socials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: var(--space-sm);
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 2.9rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    transform var(--dur-med) var(--ease-spring),
+    border-color var(--dur-fast) ease;
+}
+
+.social-link svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.social-link .social-link__arrow {
+  width: 0.9rem;
+  height: 0.9rem;
+  opacity: 0.6;
+}
+
+.social-link:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-accent);
+}
+
+/* Decorative shapes */
+.contact__shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.contact__circle {
+  position: absolute;
+  right: -8rem;
+  top: -6rem;
+  width: clamp(16rem, 34vw, 30rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--color-shape-soft);
+}
+
+.contact__ring {
+  position: absolute;
+  right: clamp(2rem, 12vw, 12rem);
+  bottom: 3rem;
+  width: clamp(6rem, 12vw, 10rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px dashed var(--color-accent);
+  opacity: 0.6;
+  animation: spin 50s linear infinite;
+}
+
+@media (max-width: 47.99em) {
+  .contact__ring {
+    display: none;
+  }
+}
