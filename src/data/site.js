@@ -15,7 +15,7 @@ export const site = {
     linkedin: "https://www.linkedin.com/in/katie-glover-",
   },
 
-  tagline: "Designing with curiosity, building with care.",
+  tagline: "Probably coding with a cat nearby.",
 
   photo: "",
   photoAlt:
