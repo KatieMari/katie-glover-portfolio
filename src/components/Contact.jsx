@@ -1,18 +1,13 @@
-import { useState } from 'react';
-import Reveal from './Reveal.jsx';
-import Icon from './Icon.jsx';
-import PlaceholderBadge from './PlaceholderBadge.jsx';
-import { site } from '../data/site.js';
-import './Contact.css';
+import { useState } from "react";
+import Reveal from "./Reveal.jsx";
+import Icon from "./Icon.jsx";
+import PlaceholderBadge from "./PlaceholderBadge.jsx";
+import { site } from "../data/site.js";
+import "./Contact.css";
 
-/**
- * Contact — no form on purpose: a mailto link always works without a backend.
- * (If you add a form later, use a service such as Formspree or Netlify Forms
- * so submissions actually go somewhere.)
- */
 export default function Contact() {
   const [copied, setCopied] = useState(false);
-  const canCopy = typeof navigator !== 'undefined' && !!navigator.clipboard;
+  const canCopy = typeof navigator !== "undefined" && !!navigator.clipboard;
 
   const copyEmail = async () => {
     try {
@@ -25,7 +20,11 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="contact section" aria-labelledby="contact-title">
+    <section
+      id="contact"
+      className="contact section"
+      aria-labelledby="contact-title"
+    >
       <div className="contact__shapes" aria-hidden="true">
         <span className="contact__circle" />
         <span className="contact__ring" />
@@ -37,12 +36,14 @@ export default function Contact() {
             <span className="eyebrow__num">05</span> Contact
           </p>
           <h2 id="contact-title" className="contact__title">
-            Have something <em>in mind?</em>
+            Let's work <em>together!</em>
           </h2>
           <p className="contact__intro">
-            I’m looking for graduate and junior front-end opportunities, and I’m always happy to chat about
-            creative projects, collaborations or anything you’ve seen here. Drop me a line. I’d love to hear
-            from you.
+            I graduate in 2027 and want to start my career in a front-end role
+            where I can keep developing both my design and coding skills. I'm
+            keen to learn from an experienced team and get better at building
+            things people enjoy using. If that sounds like a good fit, let's
+            talk.
           </p>
         </Reveal>
 
@@ -53,24 +54,36 @@ export default function Contact() {
           </a>
 
           <div className="contact__email">
-            <a className="contact__email-link link-underline" href={`mailto:${site.email}`}>
+            <a
+              className="contact__email-link link-underline"
+              href={`mailto:${site.email}`}
+            >
               {site.email}
             </a>
             <PlaceholderBadge>Add your email</PlaceholderBadge>
             {canCopy && (
-              <button type="button" className="contact__copy" onClick={copyEmail}>
-                {copied ? 'Copied!' : 'Copy'}
+              <button
+                type="button"
+                className="contact__copy"
+                onClick={copyEmail}
+              >
+                {copied ? "Copied!" : "Copy"}
               </button>
             )}
             <span className="visually-hidden" role="status" aria-live="polite">
-              {copied ? 'Email address copied to clipboard' : ''}
+              {copied ? "Email address copied to clipboard" : ""}
             </span>
           </div>
         </Reveal>
 
         <Reveal as="ul" className="contact__socials" role="list" delay={200}>
           <li>
-            <a href={site.links.github} target="_blank" rel="noopener noreferrer" className="social-link">
+            <a
+              href={site.links.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link"
+            >
               <Icon name="github" />
               GitHub
               <span className="visually-hidden"> (opens in a new tab)</span>
@@ -78,7 +91,12 @@ export default function Contact() {
             </a>
           </li>
           <li>
-            <a href={site.links.linkedin} target="_blank" rel="noopener noreferrer" className="social-link">
+            <a
+              href={site.links.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link"
+            >
               <Icon name="linkedin" />
               LinkedIn
               <span className="visually-hidden"> (opens in a new tab)</span>

@@ -32,6 +32,7 @@ export const projects = [
       palette: { bg: '#5b8def', surface: '#ffffff', ink: '#1d2b5c', accent: '#ffcf4d', soft: '#c9dcff' },
     },
   },
+  
   {
     id: 'vr-cat-cafe',
     title: 'VR Cat Café',
@@ -61,6 +62,7 @@ export const projects = [
       palette: { bg: '#2b2130', surface: '#ffffff', ink: '#2b2130', accent: '#ff8fb3', soft: '#f6d3c4' },
     },
   },
+
   {
     id: 'my-water-footprint',
     title: 'My Water Footprint',

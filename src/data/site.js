@@ -3,7 +3,7 @@ export const site = {
   showPlaceholderBadges: true,
 
   name: "Katie Glover",
-  role: "Final-year Creative Computing student",
+  role: "Final-year Creative Computing student · Graduating 2027",
   university: "Norwich University of the Arts",
   course: "Creative Computing BSc (Hons)",
   location: "Norwich, UK",
