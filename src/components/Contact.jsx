@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Reveal from "./Reveal.jsx";
 import Icon from "./Icon.jsx";
-import PlaceholderBadge from "./PlaceholderBadge.jsx";
 import { site } from "../data/site.js";
 import "./Contact.css";
 
@@ -60,7 +59,7 @@ export default function Contact() {
             >
               {site.email}
             </a>
-            <PlaceholderBadge>Add your email</PlaceholderBadge>
+
             {canCopy && (
               <button
                 type="button"
@@ -104,9 +103,7 @@ export default function Contact() {
             </a>
           </li>
           {site.showPlaceholderBadges && (
-            <li className="contact__social-note">
-              <PlaceholderBadge>Update links in site.js</PlaceholderBadge>
-            </li>
+            <li className="contact__social-note"></li>
           )}
         </Reveal>
       </div>
