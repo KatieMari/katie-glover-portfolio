@@ -6,7 +6,7 @@ import './Hero.css';
 export default function Hero() {
   const artRef = useRef(null);
 
-  // Gentle pointer parallax on the illustration (skipped for reduced motion).
+  
   const handlePointerMove = (event) => {
     const art = artRef.current;
     if (!art || event.pointerType !== 'mouse') return;
@@ -41,24 +41,23 @@ export default function Hero() {
           </p>
 
           <h1 id="hero-title" className="hero__title">
-            <span className="hero__line">Thoughtful</span>{' '}
-            <span className="hero__line">front&#8209;ends</span>{' '}
+            <span className="hero__line">Making the</span>{' '}
+            <span className="hero__line">internet</span>{' '}
             <span className="hero__line">
               <span className="hero__pill" aria-hidden="true">
                 <svg viewBox="0 0 80 24" preserveAspectRatio="none">
                   <path d="M4 14c8-10 14 6 22-2s14 6 22-2 14 6 22-2" />
                 </svg>
               </span>
-              with a
+              a little
             </span>{' '}
             <span className="hero__line">
-              <em>playful</em> streak.
+              <em>more</em> fun.
             </span>
           </h1>
 
           <p className="hero__intro">
-            Hi, I’m Katie. I love the space where creativity, design and technology meet — and I build
-            digital experiences that are engaging, accessible and genuinely enjoyable to use.
+            Hi, I'm Katie. I design and code friendly, accessible things for screens, from websites and mobile apps to a VR cat café, and I like adding a bit of personality wherever I can.
           </p>
 
           <div className="hero__actions">
@@ -110,7 +109,7 @@ export default function Hero() {
                   <span className="tok-key">const</span> katie = {'{\n'}
                   {'  '}studies: <span className="tok-str">'Creative Computing'</span>,{'\n'}
                   {'  '}loves: [<span className="tok-str">'design'</span>, <span className="tok-str">'code'</span>],{'\n'}
-                  {'  '}builds: <span className="tok-str">'thoughtful UI'</span>,{'\n'}
+                  {'  '}builds: <span className="tok-str">'friendly UI'</span>,{'\n'}
                   {'}'};
                 </code>
               </pre>

@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { id: 'skills', label: 'Skills' },
   { id: 'contact', label: 'Contact' },
 ];
-// 'top' (the hero) is watched too, so no link is highlighted at the top of the page.
+
 const SECTION_IDS = ['top', ...NAV_LINKS.map((link) => link.id)];
 
 export default function Header({ theme, onToggleTheme }) {
@@ -19,7 +19,7 @@ export default function Header({ theme, onToggleTheme }) {
   const menuButtonRef = useRef(null);
   const active = useActiveSection(SECTION_IDS);
 
-  // Add a subtle background + border once the page has scrolled.
+  // Adds a subtle background + border once the page has scrolled.
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
@@ -83,7 +83,7 @@ export default function Header({ theme, onToggleTheme }) {
             ))}
             <li className="site-nav__cta-item" style={{ '--i': NAV_LINKS.length }}>
               <a href="#contact" className="btn site-nav__cta" onClick={closeMenu}>
-                Let’s talk
+                Say Hello
                 <Icon name="arrow" />
               </a>
             </li>
