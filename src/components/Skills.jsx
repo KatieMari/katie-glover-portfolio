@@ -28,7 +28,6 @@ export default function Skills() {
           </h2>
           <p className="section-lede">
             An honest snapshot of what I work with now, and what I’m learning next.{' '}
-            <PlaceholderBadge>Edit in skills.js</PlaceholderBadge>
           </p>
         </Reveal>
 

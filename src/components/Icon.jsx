@@ -1,9 +1,3 @@
-/**
- * Icon — small inline SVG icon set (no icon library needed).
- * Usage: <Icon name="arrow" />. Icons are decorative by default (aria-hidden);
- * always pair them with visible text or an aria-label on the parent.
- */
-
 const paths = {
   arrow: <path d="M5 12h14M13 6l6 6-6 6" />,
   arrowDown: <path d="M12 5v14M6 13l6 6 6-6" />,

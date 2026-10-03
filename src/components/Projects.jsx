@@ -1,10 +1,10 @@
-import Reveal from './Reveal.jsx';
-import ProjectPreview from './ProjectPreview.jsx';
-import PlaceholderBadge from './PlaceholderBadge.jsx';
-import Icon from './Icon.jsx';
-import { projects } from '../data/projects.js';
-import { site } from '../data/site.js';
-import './Projects.css';
+import Reveal from "./Reveal.jsx";
+import ProjectPreview from "./ProjectPreview.jsx";
+import PlaceholderBadge from "./PlaceholderBadge.jsx";
+import Icon from "./Icon.jsx";
+import { projects } from "../data/projects.js";
+import { site } from "../data/site.js";
+import "./Projects.css";
 
 /** One link button, or a quiet "coming soon" note when there's no URL yet. */
 function ProjectLink({ href, label, icon, title, variant, isPlaceholder }) {
@@ -19,16 +19,13 @@ function ProjectLink({ href, label, icon, title, variant, isPlaceholder }) {
   }
   return (
     <a
-      className={`btn ${variant === 'ghost' ? 'btn--ghost' : ''} project__link`}
+      className={`btn ${variant === "ghost" ? "btn--ghost" : ""} project__link`}
       href={href}
       target="_blank"
       rel="noopener noreferrer"
     >
       {label}
-      <span className="visually-hidden">
-        {' '}
-        for {title} (opens in a new tab)
-      </span>
+      <span className="visually-hidden"> for {title} (opens in a new tab)</span>
       <Icon name={icon} />
     </a>
   );
@@ -36,11 +33,15 @@ function ProjectLink({ href, label, icon, title, variant, isPlaceholder }) {
 
 function Project({ project, index }) {
   const featured = index === 0;
-  const number = String(index + 1).padStart(2, '0');
-  const layout = featured ? 'featured' : index % 2 === 1 ? 'right' : 'left';
+  const number = String(index + 1).padStart(2, "0");
+  const layout = featured ? "featured" : index % 2 === 1 ? "right" : "left";
 
   return (
-    <Reveal as="article" className={`project project--${layout}`} aria-labelledby={`${project.id}-title`}>
+    <Reveal
+      as="article"
+      className={`project project--${layout}`}
+      aria-labelledby={`${project.id}-title`}
+    >
       <div className="project__media">
         <ProjectPreview project={project} />
       </div>
@@ -72,7 +73,11 @@ function Project({ project, index }) {
         )}
 
         {project.highlights?.length > 0 && (
-          <ul className="project__highlights" role="list" aria-label="My contribution">
+          <ul
+            className="project__highlights"
+            role="list"
+            aria-label="My contribution"
+          >
             {project.highlights.map((item) => (
               <li key={item}>{item}</li>
             ))}
@@ -86,7 +91,11 @@ function Project({ project, index }) {
           </blockquote>
         )}
 
-        <ul className="project__tech" role="list" aria-label="Technologies used">
+        <ul
+          className="project__tech"
+          role="list"
+          aria-label="Technologies used"
+        >
           {project.tech.map((tech) => (
             <li key={tech} className="tag">
               {tech}
@@ -97,17 +106,17 @@ function Project({ project, index }) {
         <div className="project__links">
           <ProjectLink
             href={project.liveUrl}
-            label={project.liveLabel || 'View live site'}
+            label={project.liveLabel || "View live site"}
             icon="external"
             title={project.title}
             isPlaceholder={project.placeholder}
           />
           <ProjectLink
             href={project.codeUrl}
-            label={project.codeLabel || 'Code on GitHub'}
+            label={project.codeLabel || "Code on GitHub"}
             icon="github"
             title={project.title}
-            variant={project.liveUrl ? 'ghost' : undefined}
+            variant={project.liveUrl ? "ghost" : undefined}
             isPlaceholder={project.placeholder}
           />
           {(project.codeLinks || []).map((link) => (
@@ -128,7 +137,11 @@ function Project({ project, index }) {
 
 export default function Projects() {
   return (
-    <section id="projects" className="projects section" aria-labelledby="projects-title">
+    <section
+      id="projects"
+      className="projects section"
+      aria-labelledby="projects-title"
+    >
       <div className="container">
         <Reveal className="projects__header">
           <div>
@@ -140,8 +153,9 @@ export default function Projects() {
             </h2>
           </div>
           <p className="section-lede">
-            A mix of university briefs and personal experiments, each one a chance to learn something new
-            about designing and building for the web.
+            Projects from my Creative Computing degree. Some were group work,
+            some were solo, and every one taught me something I hadn't tried
+            before.
           </p>
         </Reveal>
 
@@ -153,7 +167,12 @@ export default function Projects() {
 
         <Reveal className="projects__more">
           <p>Want to see more, including work in progress?</p>
-          <a className="btn btn--dark" href={site.links.github} target="_blank" rel="noopener noreferrer">
+          <a
+            className="btn btn--dark"
+            href={site.links.github}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Icon name="github" />
             Browse my GitHub
             <span className="visually-hidden"> (opens in a new tab)</span>
