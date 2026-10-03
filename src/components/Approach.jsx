@@ -12,7 +12,7 @@ export default function Approach() {
               <span className="eyebrow__num">04</span> My approach
             </p>
             <h2 id="approach-title" className="section-title">
-              From first spark to <em>final polish.</em>
+              How I like to <em>work.</em>
             </h2>
           </Reveal>
 
