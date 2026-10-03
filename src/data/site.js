@@ -19,7 +19,7 @@ export const site = {
 
   photo: "",
   photoAlt:
-    "Kg logo in a circular frame, with a gradient from pink to purple to blue",
+    "Kg logo in a circular frame",
 
   currently: [
     { label: "Learning", value: "React and accessible component patterns" },

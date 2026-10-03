@@ -37,7 +37,7 @@ export default function Footer() {
 
         <div className="site-footer__bottom">
           <p>
-            © {year} {site.name}. Designed &amp; built in {site.location.split(',')[0]} with React.
+            © {year} {site.name}. Designed &amp; built in {site.location.split(',')[0]} with Figma and React.
           </p>
           <a href="#top" className="site-footer__top">
             Back to top

@@ -35,7 +35,7 @@ export default function About() {
               <span className="eyebrow__num">01</span> About me
             </p>
             <h2 id="about-title" className="section-title">
-              Part designer, part developer, <em>always curious.</em>
+              I care about how it looks, <em>and how it works.</em>
             </h2>
           </Reveal>
 
