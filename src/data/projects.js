@@ -230,7 +230,8 @@ export const projects = [
       "Wrote a custom useOrientation hook so the instruments only appear in landscape, with a friendly prompt to rotate the phone.",
     ],
     tech: ["React Native", "Expo", "Expo Router", "TypeScript"],
-    liveUrl: "",
+    liveUrl: "https://instrumentalproject.vercel.app/Piano",
+    liveLabel: "Play it in your browser",
     codeUrl: "https://github.com/KatieMari/Instrumental_Project_",
     placeholder: false,
     preview: {
