@@ -1,5 +1,12 @@
 import './ProjectPreview.css';
 
+/**
+ * ProjectPreview — the visual for a project.
+ *  - If the project has an `image`, the screenshot is shown inside a device frame.
+ *  - Otherwise an illustrated mock-up is drawn with CSS, using the project's own
+ *    palette from projects.js (so it looks the same in light and dark mode,
+ *    just like a real screenshot would).
+ */
 export default function ProjectPreview({ project }) {
   const { preview = { type: 'browser' }, title } = project;
   // A screenshot can live on the project itself or inside `preview`
@@ -39,7 +46,11 @@ export default function ProjectPreview({ project }) {
           <img src={preview.image} alt={preview.imageAlt || `Screenshot of ${title}`} loading="lazy" />
         </figure>
         {(preview.insets || []).slice(0, 2).map((inset, i) => (
-          <figure key={inset.src} className={`pv-scene__inset pv-scene__inset--${i + 1}`}>
+          <figure
+            key={inset.src}
+            className={`pv-scene__inset pv-scene__inset--${i + 1}`}
+            style={inset.ratio ? { aspectRatio: inset.ratio } : undefined}
+          >
             <img src={inset.src} alt={inset.alt} loading="lazy" />
           </figure>
         ))}

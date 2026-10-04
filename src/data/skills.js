@@ -23,7 +23,7 @@ export const skillGroups = [
     skills: [
       { name: 'HTML', usedIn: ['My Water Footprint'] },
       { name: 'CSS', usedIn: ['My Water Footprint'] },
-      { name: 'JavaScript', usedIn: ['My Water Footprint', 'Power Pals'] },
+      { name: 'JavaScript', usedIn: ['My Water Footprint', 'Power Pals', 'Voice-Controlled Soundboard'] },
       { name: 'React', usedIn: ['My Water Footprint'] },
       { name: 'React Router', usedIn: ['My Water Footprint'] },
       { name: 'Chart.js', usedIn: ['My Water Footprint'] },
@@ -35,11 +35,12 @@ export const skillGroups = [
     blurb: 'Mobile apps and interactive 3D and VR spaces.',
     shape: 'arch',
     skills: [
-      { name: 'React Native', usedIn: ['Power Pals'] },
-      { name: 'Expo', usedIn: ['Power Pals'] },
+      { name: 'React Native', usedIn: ['Power Pals', 'Instrumental'] },
+      { name: 'Expo', usedIn: ['Power Pals', 'Instrumental'] },
       { name: 'Unity', usedIn: ['VR Cat Café'] },
       { name: 'C#', usedIn: ['VR Cat Café'] },
       { name: 'XR Interaction Toolkit', usedIn: ['VR Cat Café'] },
+      { name: 'Unity AR Foundation', usedIn: [] },
     ],
   },
   {
@@ -50,8 +51,21 @@ export const skillGroups = [
     skills: [
       { name: 'Node.js', usedIn: ['My Water Footprint'] },
       { name: 'Express', usedIn: ['My Water Footprint'] },
-      { name: 'TypeScript', usedIn: ['My Water Footprint'] },
+      { name: 'TypeScript', usedIn: ['My Water Footprint', 'Instrumental'] },
       { name: 'REST APIs', usedIn: ['My Water Footprint'] },
+    ],
+  },
+  {
+    id: 'creative',
+    title: 'Creative coding & ML',
+    blurb: 'Generative art, sound and machine learning experiments.',
+    shape: 'half',
+    skills: [
+      { name: 'p5.js', usedIn: ['Voice-Controlled Soundboard'] },
+      { name: 'ml5.js', usedIn: ['Voice-Controlled Soundboard'] },
+      { name: 'Teachable Machine', usedIn: ['Voice-Controlled Soundboard'] },
+      { name: 'PyTorch', usedIn: [] },
+      { name: 'Arduino', usedIn: [] },
     ],
   },
   {
@@ -81,4 +95,4 @@ export const skillGroups = [
   },
 ];
 
-export const exploring = ['MongoDB', 'Accessibility testing', 'ml5.js'];
+export const exploring = ['MongoDB', 'Accessibility testing'];

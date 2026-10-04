@@ -3,6 +3,7 @@ import Hero from './components/Hero.jsx';
 import About from './components/About.jsx';
 import Marquee from './components/Marquee.jsx';
 import Projects from './components/Projects.jsx';
+import Experiments from './components/Experiments.jsx';
 import Skills from './components/Skills.jsx';
 import Approach from './components/Approach.jsx';
 import Contact from './components/Contact.jsx';
@@ -23,6 +24,7 @@ export default function App() {
         <About />
         <Marquee />
         <Projects />
+        <Experiments />
         <Skills />
         <Approach />
         <Contact />

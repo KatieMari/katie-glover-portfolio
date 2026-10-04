@@ -69,6 +69,13 @@
   border: 3px dashed var(--color-accent);
 }
 
+.skill-shape--half {
+  height: 1.2rem;
+  margin-top: 0.75rem;
+  border-radius: 999px 999px 0 0;
+  background: var(--color-highlight);
+}
+
 .skill-shape--star {
   fill: var(--color-highlight);
 }
