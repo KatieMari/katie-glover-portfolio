@@ -95,4 +95,4 @@ export const skillGroups = [
   },
 ];
 
-export const exploring = ['MongoDB', 'Accessibility testing'];
+export const exploring = ['More React', 'More Backend'];
