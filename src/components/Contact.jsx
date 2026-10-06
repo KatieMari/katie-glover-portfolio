@@ -102,6 +102,19 @@ export default function Contact() {
               <Icon name="external" className="social-link__arrow" />
             </a>
           </li>
+          <li>
+            <a
+              href={site.links.cv}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link"
+            >
+              <Icon name="external" />
+              CV (PDF)
+              <span className="visually-hidden"> (opens in a new tab)</span>
+              <Icon name="external" className="social-link__arrow" />
+            </a>
+          </li>
           {site.showPlaceholderBadges && (
             <li className="contact__social-note"></li>
           )}

@@ -13,6 +13,7 @@ export const site = {
   links: {
     github: "https://github.com/KatieMari",
     linkedin: "https://www.linkedin.com/in/katie-glover-",
+    cv: '/Katie_Glover_CV.pdf'
   },
 
   tagline: "Probably coding with a cat nearby.",
